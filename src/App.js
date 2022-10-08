@@ -5,6 +5,7 @@ import Home from './Pages/Home';
 import Navbar from './Pages/Navbar';
 import Profile from './Pages/Profile';
 
+
 function App() {
   return (
     <div >
@@ -13,8 +14,9 @@ function App() {
     <Routes>
       <Route path='/' element={<Home/>}/>
       <Route path='/default' element={<DefaultPage/>}/>
-      <Route path='/profile' element={<Profile></Profile>}/>
+      <Route path='/profile/:userId' element={<Profile></Profile>}/>
     </Routes>
+    
     </div>
   );
 }

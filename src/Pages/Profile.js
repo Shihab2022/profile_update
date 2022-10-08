@@ -1,9 +1,25 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import useData from "../hooks/useData";
 import "./Profile.css";
 
 const Profile = () => {
   const [value, setValue] = useState("shihab");
-  console.log(value);
+  const {userId}=useParams()
+  const [userData,setUserData]=useState([])
+  useEffect(()=>{
+      fetch('fake.json')           //api for the get request
+      .then(response => response.json())
+      .then(data => setUserData(data));
+  
+  
+  },[userId])
+//   useEffect(()=>{
+// const remaining =userData.find(d=> d.index===userId)
+// console.log(remaining)
+//   },[userData,userId])
+console.log(userData)
+  console.log(userId);
   return (
     <div className="mt-20  h-screen ">
       <form className="flex flex-col justify-center items-center w-full">

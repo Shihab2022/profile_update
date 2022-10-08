@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import useData from '../hooks/useData';
 
 const Home = () =>  {
+ 
     const [userData,setUserData]=useData()
     console.log(userData)
     return (
@@ -11,12 +12,12 @@ const Home = () =>  {
            
 <div className='w-full  flex-col w-1/2'>
 {
-  userData.map(d=><>
+  userData?.map(d=><>
   <div className='my-5 font-serif'>
     <p className='text-2xl font-semibold'> Name : <span className='text-lg'>{d.name}</span></p>
     <p className='text-2xl font-semibold'> Email :  <span className='text-lg text-green-700'>{d.email}</span></p>
     <p className='mb-3 text-2xl font-semibold'> About : <span  className='text-sm'>{d.about}</span></p>
-    <Link to={`/edit/${d.index}`} className='bg-gradient-to-r from-zinc-500 to-zinc-800 px-10 text-xl text-white my-10 py-2 rounded-md w-1/2 '>Edit</Link>
+    <Link to={`/profile/${d.index}`} className='bg-gradient-to-r from-zinc-500 to-zinc-800 px-10 text-xl text-white my-10 py-2 rounded-md w-1/2 '>Edit</Link>
 </div>
   </>)  
     
