@@ -1,0 +1,4 @@
+.shadow {border-radius: 11px;
+    background: #fff;
+    box-shadow: inset 8px 8px 16px #fafa,
+                inset -8px -18px 16px #ffffff;}
