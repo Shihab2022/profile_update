@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const menu = [
   { name: "Home", href: "/", id: "293oc02c" },
   { name: "About", href: "/default", id: "2aod030vkd" },
-  { name: "Service", href: "/default", id: "8aod030vk" },
+  { name: "Service", href: "/call", id: "8aod030vk" },
   { name: "Contact", href: "/default", id: "8aod0123565" },
 ];
 

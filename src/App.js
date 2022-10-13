@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import Call from './Pages/Call';
 import DefaultPage from './Pages/DefaultPage';
 import Home from './Pages/Home';
 import Navbar from './Pages/Navbar';
@@ -14,6 +15,7 @@ function App() {
     <Routes>
       <Route path='/' element={<Home/>}/>
       <Route path='/default' element={<DefaultPage/>}/>
+      <Route path='/call' element={<Call/>}/>
       <Route path='/profile/:userId' element={<Profile></Profile>}/>
     </Routes>
     
