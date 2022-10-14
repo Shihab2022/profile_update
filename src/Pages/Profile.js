@@ -18,8 +18,8 @@ const Profile = () => {
 // const remaining =userData.find(d=> d.index===userId)
 // console.log(remaining)
 //   },[userData,userId])
-console.log(userData)
-  console.log(userId);
+// console.log(userData)
+//   console.log(userId);
   return (
     <div className="mt-20  h-screen ">
       <form className="flex flex-col justify-center items-center w-full">

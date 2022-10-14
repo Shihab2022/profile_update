@@ -4,8 +4,7 @@ import { useParams } from 'react-router-dom';
 const EditDetails = () => {
     const {userId}=useParams()
     const [users,setUsers]=useState([])
-    const [name,setName]=useState('')
-    // const [user,setUser]=useState({})
+    const [success,setSuccess]=useState(false)
     useEffect(()=>{
         fetch(`http://localhost:5000/users`)           //api for the get request
         .then(response => response.json())
@@ -13,35 +12,53 @@ const EditDetails = () => {
         
     },[])
 
-   
-    useEffect(()=>{
-        if(users.length !== 0){
-            const user=users.filter(d=>d._id===userId)
-            const n=user[0]?.employee_name
-            setName(n)
-        
-           }
-
-    },[])
-    // let userName=
- console.log(name)
-
-    const handleResetFrom=()=>{
-
-    }
+    const user=users.filter(d=>d._id===userId)
+    const handleResetFrom = (e) => {
+        e.preventDefault();
+        const name = e.target.name.value;
+        const image = e.target.image.value;
+        const salary = e.target.salary.value;
+        const age = e.target.age.value;
+        const user = {
+          employee_name: name,
+          profile_image:image,
+          employee_salary: salary,
+          employee_age: age,
+        };
+    
+        // fetch('https://dry-island-38030.herokuapp.com/addUser', {
+        fetch(`http://localhost:5000/updateUser/${userId}`, {
+          method: "POST", // or 'PUT'
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(user),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.acknowledged) {
+                setSuccess(true)
+                console.log(data)
+                e.target.reset()
+            } 
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+          });
+      };
     // console.log(user.length !== 0)
     return (
         <div className="min-h-screen bg-gray-100 py-6 flex flex-col justify-center mt-10 sm:py-12">
         <div className="relative py-3 sm:max-w-xl sm:mx-auto">
           <div className="absolute inset-0 bg-gradient-to-r to-amber-300 from-red-900 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-12 sm:rounded-3xl"></div>
           <div  className="relative px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-20">
-            <div className="max-w-md mx-auto">
+            <div onMouseOut={()=>setSuccess(false)} className="max-w-md mx-auto">
               <div>
                 <h1 className="text-2xl px-24 font-semibold">
                   {" "}
                  Add New User
                 </h1>
-                {/* {success && <h1 className="text-xl text-center text-amber-500">User added successfully !!!! </h1>} */}
+                {success && <h1 className="text-xl text-center text-amber-500"> {user[0]?.employee_name} details update successfully !!!! </h1>}
               </div>
   
               <div className="divide-y divide-gray-200">
@@ -56,17 +73,14 @@ const EditDetails = () => {
                       id="name"
                       name="name"
                       type="text"
-                      onChange={(e) => setName(e)}
-                      value={name}
                       className="peer placeholder-transparent h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600"
-                      placeholder=" Enter  New Name"
                       required
                     />
                     <label
                       for="name"
                       className="absolute left-0 -top-3.5 text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm"
                     >
-                      Enter New Name
+                      {user[0]?.employee_name}
                     </label>
                   </div>
                   <div className="relative">
@@ -83,7 +97,7 @@ const EditDetails = () => {
                       for="image"
                       className="absolute left-0 -top-3.5 text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm"
                     >
-                      Enter New Image Link
+                   Link : {user[0]?.profile_image}
                     </label>
                   </div>
                   <div className="relative">
@@ -100,7 +114,7 @@ const EditDetails = () => {
                       for="salary"
                       className="absolute left-0 -top-3.5 text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm"
                     >
-                      Salary
+                     Previous Salary : {user[0]?.employee_salary}
                     </label>
                   </div>
                   <div className="relative">
@@ -117,7 +131,7 @@ const EditDetails = () => {
                       for="age"
                       className="absolute left-0 -top-3.5 text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm"
                     >
-                      Age
+                    Previous Age : {user[0]?.employee_age}
                     </label>
                   </div>
                   <div className="relative">
