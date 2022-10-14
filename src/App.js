@@ -3,6 +3,7 @@ import './App.css';
 import AddUser from './Pages/AddUser';
 import Call from './Pages/Call';
 import DefaultPage from './Pages/DefaultPage';
+import EditDetails from './Pages/EditDetails';
 import Home from './Pages/Home';
 import Navbar from './Pages/Navbar';
 import Profile from './Pages/Profile';
@@ -17,6 +18,7 @@ function App() {
     <Routes>
       <Route path='/' element={<User/>}/>
       <Route path='/user' element={<AddUser/>} />
+      <Route path='/editDetails/:userId' element={<EditDetails/>} />
       {/* <Route path='/' element={<Home/>}/> */}
       <Route path='/default' element={<DefaultPage/>}/>
       <Route path='/call' element={<Call/>}/>
