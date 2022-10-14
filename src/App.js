@@ -4,7 +4,7 @@ import AddUser from './Pages/AddUser';
 import Call from './Pages/Call';
 import DefaultPage from './Pages/DefaultPage';
 import EditDetails from './Pages/EditDetails';
-import Home from './Pages/Home';
+// import Home from './Pages/Home';
 import Navbar from './Pages/Navbar';
 import Profile from './Pages/Profile';
 import User from './Pages/User';

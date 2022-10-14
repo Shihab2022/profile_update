@@ -15,8 +15,8 @@ const AddUser = () => {
       employee_age: age,
     };
 
-    // fetch('https://dry-island-38030.herokuapp.com/addUser', {
-    fetch("http://localhost:5000/addUser", {
+    fetch('https://dry-island-38030.herokuapp.com/addUser', {
+    // fetch("http://localhost:5000/addUser", {
       method: "POST", // or 'PUT'
       headers: {
         "Content-Type": "application/json",

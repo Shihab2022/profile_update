@@ -6,7 +6,8 @@ const EditDetails = () => {
     const [users,setUsers]=useState([])
     const [success,setSuccess]=useState(false)
     useEffect(()=>{
-        fetch(`http://localhost:5000/users`)           //api for the get request
+        fetch(`https://dry-island-38030.herokuapp.com/users`)           //api for the get request
+        // fetch(`http://localhost:5000/users`)           //api for the get request
         .then(response => response.json())
         .then(data => setUsers(data));
         
@@ -26,8 +27,8 @@ const EditDetails = () => {
           employee_age: age,
         };
     
-        // fetch('https://dry-island-38030.herokuapp.com/addUser', {
-        fetch(`http://localhost:5000/updateUser/${userId}`, {
+        fetch(`https://dry-island-38030.herokuapp.com/updateUser/${userId}`, {
+        // fetch(`http://localhost:5000/updateUser/${userId}`, {
           method: "POST", // or 'PUT'
           headers: {
             "Content-Type": "application/json",

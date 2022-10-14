@@ -10,7 +10,7 @@ const Home = () =>  {
         <div className='flex mt-20 flex-col justify-center items-center '>
             <p className='font-serif font-bold text-transparent  text-5xl bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600'>Welcome to  Our Profile </p>
            
-<div className='w-full  flex-col w-1/2'>
+<div className='w-full  flex-col'>
 {
   userData?.map(d=><>
   <div className='my-5 font-serif'>
