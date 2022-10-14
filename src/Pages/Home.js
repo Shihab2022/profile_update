@@ -4,7 +4,7 @@ import useData from '../hooks/useData';
 
 const Home = () =>  {
  
-    const [userData,setUserData]=useData()
+    const [userData,]=useData()
     console.log(userData)
     return (
         <div className='flex mt-20 flex-col justify-center items-center '>

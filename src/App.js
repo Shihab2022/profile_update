@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import AddUser from './Pages/AddUser';
 import Call from './Pages/Call';
 import DefaultPage from './Pages/DefaultPage';
 import Home from './Pages/Home';
@@ -15,6 +16,7 @@ function App() {
     <Navbar></Navbar>
     <Routes>
       <Route path='/' element={<User/>}/>
+      <Route path='/user' element={<AddUser/>} />
       {/* <Route path='/' element={<Home/>}/> */}
       <Route path='/default' element={<DefaultPage/>}/>
       <Route path='/call' element={<Call/>}/>
