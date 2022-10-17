@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import Test from './dashbord/Test';
 import AddUser from './Pages/AddUser';
 import Call from './Pages/Call';
 import DefaultPage from './Pages/DefaultPage';
@@ -23,6 +24,7 @@ function App() {
       <Route path='/default' element={<DefaultPage/>}/>
       <Route path='/call' element={<Call/>}/>
       <Route path='/profile/:userId' element={<Profile></Profile>}/>
+      <Route path='/test' element={<Test/>}/>
     </Routes>
     
     </div>
